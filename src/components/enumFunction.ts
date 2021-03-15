@@ -7,4 +7,6 @@ enum CalcFunction {
 
 const Equals = "=";
 
-export {CalcFunction, Equals}
+const Clear = "C";
+
+export {CalcFunction, Equals, Clear}

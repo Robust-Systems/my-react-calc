@@ -1,4 +1,4 @@
-import { CalcFunction, Equals } from "./enumFunction";
+import { CalcFunction, Clear, Equals } from "./enumFunction";
 import { FunctionResult } from "./FunctionResult";
 
 export default class KeyProcessor {
@@ -14,8 +14,11 @@ export default class KeyProcessor {
     this.result = null;
   }
 
-  ProcessKey(key: number | CalcFunction | typeof Equals): FunctionResult {
-    if (typeof key === "number" && this.functionType === null) {
+  ProcessKey(key: number | CalcFunction | typeof Equals | typeof Clear): FunctionResult {
+    if(key === Clear){
+      this.Clear();
+    }    
+    else if (typeof key === "number" && this.functionType === null) {
       this.number1 = +`${this.blankIfNull(this.number1)}${key}`;
     } else if (typeof key === "string" && key !== Equals && this.number2 === null) {
       this.functionType = key as CalcFunction;

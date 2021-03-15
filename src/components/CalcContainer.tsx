@@ -1,13 +1,14 @@
-import { Component } from "react";
+import React, { Component } from "react";
 import { Container, Col, Row } from "react-bootstrap";
 import { DisplayContext } from "./DisplayContext";
 import DisplayWindow from "./DisplayWindow";
-import { CalcFunction, Equals } from "./enumFunction";
+import { CalcFunction, Clear, Equals } from "./enumFunction";
 import KeyProcessor from "./KeyProcessor";
 import NumberCell from "./NumberCell";
 import FunctionCell from "./FunctionCell";
 import { FunctionResult } from "./FunctionResult";
 import EqualsCell from "./EqualsCell";
+import ClearCell from "./ClearCell";
 
 export default class CalcContainer extends Component<{}, FunctionResult> {
   private keyProcessor: KeyProcessor = new KeyProcessor();
@@ -21,7 +22,7 @@ export default class CalcContainer extends Component<{}, FunctionResult> {
     });
   }
 
-  cellNumberClickHandler = (cellValue: number | CalcFunction | typeof Equals) => {
+  cellNumberClickHandler = (cellValue: number | CalcFunction | typeof Equals | typeof Clear) => {
     let result = this.keyProcessor.ProcessKey(cellValue);
     this.setState(result);
   };
@@ -88,12 +89,17 @@ export default class CalcContainer extends Component<{}, FunctionResult> {
           </Col>
         </Row>
         <Row>
-          <Col>&nbsp;</Col>
           <Col>
             <NumberCell cellValue={0} onClick={this.cellNumberClickHandler} />
           </Col>
-          <Col>&nbsp;</Col>
+          <Col><ClearCell callbackFunc={this.cellNumberClickHandler} /></Col>
           <Col><EqualsCell callbackFunc={this.cellNumberClickHandler} /></Col>
+          <Col>
+            <FunctionCell
+              cellFunction={CalcFunction.Divide}
+              callbackFunc={this.cellNumberClickHandler}
+            />
+          </Col>
         </Row>
       </Container>
     );
