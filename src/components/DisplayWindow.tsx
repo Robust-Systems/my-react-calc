@@ -5,13 +5,11 @@ const DisplayWindow = () => {
   const result = useContext(DisplayContext);
   const resultStr = `${blankIfNull(result.number1)} ${blankIfNull(
     result.funcAction
-  )} ${blankIfNull(result.number2)} ${result.result ? "=" : ""} ${blankIfNull(result.result)} `;
+  )} ${blankIfNull(result.number2)} ${result.result ? "=" : ""} ${blankIfNull(
+    result.result
+  )} `;
 
-  return (
-    <div className="ifty">
-      <div>&nbsp;{resultStr}</div>
-    </div>
-  );
+  return <div className="cell">&nbsp;{resultStr}</div>;
 };
 
 const blankIfNull = (value: any) => {

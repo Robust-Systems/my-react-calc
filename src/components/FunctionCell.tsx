@@ -7,7 +7,7 @@ type FunctionCellProps = {
 };
 
 const FunctionCell = ({ cellFunction, callbackFunc }: FunctionCellProps) => (
-  <div onClick={() => callbackFunc(cellFunction)}>{cellFunction}</div>
+  <div onClick={() => callbackFunc(cellFunction)} className="cell">{cellFunction}</div>
 );
 
 export default FunctionCell;

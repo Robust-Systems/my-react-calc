@@ -6,7 +6,7 @@ type FunctionCellProps = {
 };
 
 const EqualsCell = ({ callbackFunc }: FunctionCellProps) => (
-  <div onClick={() => callbackFunc(Equals)}>{Equals}</div>
+  <div onClick={() => callbackFunc(Equals)} className="cell">{Equals}</div>
 );
 
 export default EqualsCell;

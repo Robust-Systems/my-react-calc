@@ -6,7 +6,7 @@ type FunctionCellProps = {
 };
 
 const ClearCell = ({ callbackFunc }: FunctionCellProps) => (
-  <div onClick={() => callbackFunc(Clear)}>{Clear}</div>
+  <div onClick={() => callbackFunc(Clear)} className="cell">{Clear}</div>
 );
 
 export default ClearCell;

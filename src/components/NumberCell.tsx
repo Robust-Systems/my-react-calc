@@ -6,7 +6,7 @@ type NumberCellProps = {
 };
 
 const NumberCell = ({ cellValue, onClick }: NumberCellProps) => (
-   <div onClick={() => onClick(cellValue)}>{cellValue}</div>
+   <div onClick={() => onClick(cellValue)} className="cell">{cellValue}</div>
 );
 
 export default NumberCell;
