@@ -31,7 +31,7 @@ export default class CalcContainer extends Component<{}, FunctionResult> {
     return (
       <Container>
         <Row>
-          <Col>
+          <Col className="bg-white">
             <DisplayContext.Provider value={this.state}>
               <DisplayWindow />
             </DisplayContext.Provider>

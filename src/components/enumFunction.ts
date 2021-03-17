@@ -1,6 +1,6 @@
 enum CalcFunction {
   Add = "+",
-  Subtract = "-",
+  Subtract = "–",
   Multiply = "x",
   Divide = "/"
 }
